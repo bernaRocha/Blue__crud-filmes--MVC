@@ -1,0 +1,27 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "Trabalho da Blue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bernaRocha/Blue__crud--filmes.git"
+  },
+  "author": "Bernardo Rocha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bernaRocha/Blue__crud--filmes/issues"
+  },
+  "homepage": "https://github.com/bernaRocha/Blue__crud--filmes#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
