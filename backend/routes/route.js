@@ -9,11 +9,11 @@ const controller = require('../controllers/controller')
 
 router.get('/', controller.getFilmes)
 
-router.get('/filmes/:id', controller.getFilmesById)
+router.get('/:id', controller.getFilmesById)
 
 router.post('/adicionar', controller.postFilme)
 
-router.put('/editar/:id', controller.postFilme)
+router.put('/editar/:id', controller.putFilme)
 
 router.delete('/deletar/:id', controller.deleteFilme)
 

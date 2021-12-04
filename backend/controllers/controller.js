@@ -2,12 +2,14 @@
 const filmeService = require('../services/service')
 
 const getFilmes = (req, res) => {
+                              // getFilmes() vem do service
   const filmes = filmeService.getFilmes()
   res.send(filmes)
 }
 
 // retorna 1 filme de acordo com o Id
 const getFilmesById = (req, res) => {
+  // REQ vem do front pro back e RES é o retorno do back pro Front
   const id = req.params.id
   const filme = filmeService.getFilmesById(id)
   res.send(filme)

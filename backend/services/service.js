@@ -34,7 +34,7 @@ const getFilmes = () => {
 }
 
 const getFilmesById = (idParam) => {
-  crudFilmes.find((filme) => filme.id == idParam)
+  return crudFilmes.find((filme) => filme.id == idParam)
 }
 
 const postFilme = (novoFilme) => {
@@ -45,8 +45,37 @@ const postFilme = (novoFilme) => {
     return novoFilme
 }
 
+const putFilme = (idParam, filmeEdit) => {
+    const index = crudFilmes.findIndex((filme) => filme.id == idParam)
+
+    if(index > 0) {
+      crudFilmes[index] = {
+        ...crudFilmes[index],
+        ...filmeEdit
+      }
+
+      return true
+
+    } else {
+
+      return false
+    }
+}
+
+const deleteFilme = (idParam) => {
+  const index = crudFilmes.findIndex((filme) => filme.id == idParam)
+
+  const filmeDeletado = crudFilmes[index]
+
+  crudFilmes.splice(index, 1)
+
+  return filmeDeletado
+}
+
 module.exports = {
   getFilmes,
   getFilmesById,
-  postFilme
+  postFilme,
+  putFilme,
+  deleteFilme
 }
