@@ -2,7 +2,7 @@
 const filmeService = require('../services/service')
 
 const getFilmes = (req, res) => {
-                              // getFilmes() vem do service
+
   const filmes = filmeService.getFilmes()
   res.send(filmes)
 }
@@ -16,12 +16,30 @@ const getFilmesById = (req, res) => {
 }
 
 const postFilme = (req, res) => {
+  
+  if(!req.body || !req.body.titulo || !req.body.diretor || !req.body.genero || !req.body.capa) {
+    res.status(400).send({message: 'Filme invalido, favor preencher os campos pedidos'})
+    return
+  }
+  // funcoes do servie
   const filme = req.body
-  const novoFilme = filmeService.addFilme(filme)
-  res.send({message: `Filme ${novoFilme.filme} do diretor: ${novoFilme.diretor} adicionado com sucesso.`})
+  const novoFilme = filmeService.postFilme(filme)
+
+  if(!novoFilme.titulo) {
+    res.status(500).send({message: "Ocorreu um erro ao salvar o filme, tente novamente"})
+  }
+
+
+  res.send({message: `Filme ${novoFilme.titulo} do diretor: ${novoFilme.diretor} adicionado com sucesso.`})
 }
 
 const putFilme = (req, res) => {
+  
+  if(!req.body || !req.body.titulo || !req.body.diretor || !req.body.genero || !req.body.capa) {
+    res.status(400).send({message: 'Não foi possível editar, favor preencher os campos pedidos'})
+    return
+  }
+  
   const idParam = req.params.id
 
   const filmeEdit = req.body
@@ -35,8 +53,14 @@ const putFilme = (req, res) => {
 }
 
 const deleteFilme = (req, res) => {
+  const id = req.params.id
   const apagarFilme = filmeService.deleteFilme(req.params.id)
-  res.send(`Ò filme ${apagarFilme.filme} foi excluído`)
+  
+  if(!apagarFilme) {
+    res.status(404).send({message: 'Nao foi possivel excluir o filme, tente novamente'})
+  }
+
+  res.send(`O filme ${apagarFilme.titulo} foi excluído`)
 }
 
 module.exports = {

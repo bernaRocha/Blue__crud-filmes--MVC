@@ -2,9 +2,6 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 const port = 3000
-app.listen(port, () => {
-  console.log(`App Rodando na porta ${port}`);
-})
 
 // CORS
 const cors = require('cors')
@@ -14,4 +11,8 @@ app.use(cors())
 const route = require('./routes/route') 
 
 // assim o backend usar a rota para o endpoint vagas
-app.use('/filmes', route)
+app.use('/crudFilmes', route)
+
+app.listen(port, () => {
+  console.log(`App Rodando na porta ${port}`);
+})

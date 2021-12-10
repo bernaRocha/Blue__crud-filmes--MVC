@@ -12,7 +12,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/cards.css" />
+    <link rel="stylesheet" href="./css/procuraFilme.css" />
+    <title>CRUD Filmes</title>
   </head>
   <body>
     <header>
@@ -24,56 +26,115 @@
     </header>
 
     <h1>Projeto 1 - mod 03</h1>
+    <div class="card__area">
+      
+      <div id="card__filmes"></div>
+
+    </div>
+
     <main class="principal">
-      
-      <div>
-        <img src="" alt="">
-        <h3>Nome do Filme</h3>
-        <div>
-          <p>Diretor</p>
-        </div>
-        <button><a href="" class="botao__editar">Editar</a></button>
-        <button><a href="" class="botao__apagar">Apagar</a></button>
-      </div>
-      
-      <div>
-        <img src="" alt="">
-        <h3>Nome do Filme</h3>
-        <div>
-          <p>Diretor</p>
-        </div>
-        <button><a href="" class="botao__editar">Editar</a></button>
-        <button><a href="" class="botao__apagar">Apagar</a></button>
-      </div>
 
-      <div>
-        <img src="" alt="">
-        <h3>Nome do Filme</h3>
-        <div>
-          <p>Diretor</p>
-        </div>
-        <button><a href="" class="botao__editar">Editar</a></button>
-        <button><a href="" class="botao__apagar">Apagar</a></button>
-      </div>
+      <!-- const escolherFilme -->
+      <table>
+        <div class="propcura__filmes"> 
+          <p>Pesquisar filme: </p>
+          <label for="filme">Título: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="filme"
+            placeholder="Pesquise o filme"
+          />
 
-      
+          <label for="diretor">Diretor: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="diretor"
+            placeholder="Pesquise o diretor"
+          />
+          
+        </div>
+
+        <button onclick="escolherFilme()">
+          Escolher
+        </button>
+
+        <div id="filme__escolhido"></div>
+      </table>
+
+      <table>
+        <div class="posta__filme">
+          <p>Adicionar filme: </p>
+          <label for="titulo">Título: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="titulo"
+            placeholder="Adicionar filme"
+          />
+
+          <label for="diretor">Diretor: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="diretor"
+            placeholder="Adicionar o diretor"
+          />
+
+          <label for="genero">Gênero: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="genero"
+            placeholder="Adicionar gênero"
+          />
+
+          <label for="capa">Capa: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="capa"
+            placeholder="Adicionar a capa"
+          />
+
+          <label for="nota">Nota: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="nota"
+            placeholder="Avaliação"
+          />
+
+          <button onclick="submitFilme()">
+            Cadastrar
+          </button>
+
+
+        </div>
+      </table>
+
+     
     </main>
+
+
+    
+
 
     <footer>
       - Este trabalho foi feito por: Bernardo Rocha. Contato:
       <a
         href="https://www.linkedin.com/in/bernardo-monteiro-rocha-b302101b3/"
         target="_blank"
-        >LinkedIn</a
-      > 
-      &
+        >LinkedIn
+      </a>&
+
       <a href="https://github.com/bernaRocha" target="_blank">GitHub - </a>
     </footer>
 
-    <script src="./js/index.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
-
 
 <!-- 
 https://codepen.io/njs/pen/BVdwZB?editors=1010 -->

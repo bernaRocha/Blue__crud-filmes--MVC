@@ -17,6 +17,4 @@ router.put('/editar/:id', controller.putFilme)
 
 router.delete('/deletar/:id', controller.deleteFilme)
 
-
-// exportar para ser usado em outro js
 module.exports = router

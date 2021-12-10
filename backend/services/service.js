@@ -4,6 +4,7 @@ const crudFilmes = [
     titulo: 'Godzilla',
     diretor: 'Ishirô Honda',
     genero: 'Terror, ficção científica',
+    nota: 10,
     capa: 'https://m.media-amazon.com/images/M/MV5BMjAzNTk3MTc2OF5BMl5BanBnXkFtZTgwNzI5MzU5MTE@._V1_FMjpg_UY720_.jpg'
   },
   {
@@ -11,6 +12,7 @@ const crudFilmes = [
     titulo: 'Os Sete Samurais',
     diretor: 'Akira Kurosawa',
     genero: 'Ação, aventura, drama',
+    nota: 9,
     capa: 'https://m.media-amazon.com/images/M/MV5BOWE4ZDdhNmMtNzE5ZC00NzExLTlhNGMtY2ZhYjYzODEzODA1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg'
   },
   {
@@ -18,6 +20,7 @@ const crudFilmes = [
     titulo: 'Interestelar',
     diretor: 'Christopher Nolan',
     genero: 'Aventura, drama, ficção científica',
+    nota: 8,
     capa: 'https://m.media-amazon.com/images/M/MV5BMzg0NzYyNDMtZTkxMS00NmYzLWJkMDAtMmNlYTY1MTRmM2IwXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_FMjpg_UY720_.jpg'
   },
   {
@@ -25,6 +28,7 @@ const crudFilmes = [
     titulo: 'Blade Runner 2049',
     diretor: 'Denis Villeneuve',
     genero: 'Aventura, drama, ficção científica',
+    nota: 9,
     capa: 'https://m.media-amazon.com/images/M/MV5BNjlhNmI2NjItNmJjYi00YzEwLWFjY2EtYmNhYmE3NGFkMTUzXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_FMjpg_UY720_.jpg'
   }
 ]
@@ -63,6 +67,10 @@ const putFilme = (idParam, filmeEdit) => {
 }
 
 const deleteFilme = (idParam) => {
+  if(!idParam) {
+    return
+  }
+  
   const index = crudFilmes.findIndex((filme) => filme.id == idParam)
 
   const filmeDeletado = crudFilmes[index]
